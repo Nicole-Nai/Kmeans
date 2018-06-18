@@ -8,20 +8,6 @@ Created on Sun Jun 17 14:02:12 2018
 import numpy as np
 
 
-#x为数据集m*n的矩阵
-def TrainTestSplit(x,test_size = 0.4):
-    x_num = x.shape[0]
-    train_index = range(x_num)
-    test_index = []
-    test_num = int(x_num*test_size)
-    for i in range(test_num):
-        ranindex = int(np.random.uniform(0,len(train_index)))
-        test_index.append(train_index[ranindex])
-        del train_index[ranindex]
-    train = x.ix[train_index]
-    test = x.ix[test_index]
-    return train, test
-
 #x为数据集m*n的矩阵,k为类别数
 def KMeans(x,k=2):
     def rand_centroids(x,k):
